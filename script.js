@@ -49,7 +49,7 @@ const getBoocks = function () {
                   <p class="card-text">${book.price}€</p>
                   <div class="d-flex  ">
 
-                  <a href="#" class="btn btn-primary mt-auto ms-1 ms-xl-2 mx-xxl-3  " >rip card</a>
+                  <a href="#" class="btn btn-primary mt-auto ms-1 ms-xl-2 mx-xxl-3 removecardcarrello " >rip card</a>
                     </div>
                 </div>
               </div>
@@ -60,6 +60,13 @@ const getBoocks = function () {
             const carrello = document.querySelectorAll(".coldelete");
             console.log(carrello);
             carrello[i].classList.remove("d-none");
+          });
+        });
+        const myButtonR = document.querySelectorAll(".removecardcarrello");
+        myButtonR.forEach((btn, i) => {
+          btn.addEventListener("click", function () {
+            const myCardcarrello = document.querySelectorAll(".coldelete");
+            myCardcarrello[i].classList.add("d-none");
           });
         });
       });
