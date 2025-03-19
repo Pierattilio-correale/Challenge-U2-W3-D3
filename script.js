@@ -15,7 +15,7 @@ const getBoocks = function () {
       myRow.innerHTML = "";
       data.forEach((book) => {
         myRow.innerHTML += `<div class="col  col-lg-3 text-center my-4 d-flex align-items-stretch">
-            <div class="card w-100" >
+            <div class="card card2 w-100" >
               <img src="${book.img}" class="card-img-top " alt="Copertina di ${book.title}">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title flex-grow-1 mt-4">${book.title}</h5>
@@ -30,37 +30,39 @@ const getBoocks = function () {
         const myButtonA = document.querySelectorAll(".removecard");
         myButtonA.forEach((btn, i) => {
           btn.addEventListener("click", function () {
-            const myCard = document.querySelectorAll(".card");
+            const myCard = document.querySelectorAll(".card2");
+            console.log(myCard);
             myCard[i].classList.add("autodis");
           });
         });
       });
       //   costruzione carrello
-      //   const myRow2 = document.getElementById("mybigrow2");
+      const myRow2 = document.getElementById("mybigrow2");
 
-      //   myRow2.innerHTML = "";
-      //   data.forEach((book) => {
-      //     myRow2.innerHTML += `<div class="col  col-12 text-center my-4 d-flex align-items-stretch d-none coldelete" >
-      //         <div class="card  w-100 " >
-      //           <img src="${book.img}" class="card-img-top " alt="Copertina di ${book.title}">
-      //           <div class="card-body d-flex flex-column">
-      //             <h5 class="card-title flex-grow-1 mt-4">${book.title}</h5>
-      //             <p class="card-text">${book.price}€</p>
-      //             <div class="d-flex  ">
+      myRow2.innerHTML = "";
+      data.forEach((book) => {
+        myRow2.innerHTML += `<div class="col  col-12 text-center my-4 d-flex align-items-stretch d-none coldelete" >
+              <div class="card  w-100 " >
+                <img src="${book.img}" class="card-img-top " alt="Copertina di ${book.title}">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title flex-grow-1 mt-4">${book.title}</h5>
+                  <p class="card-text">${book.price}€</p>
+                  <div class="d-flex  ">
 
-      //             <a href="#" class="btn btn-primary mt-auto ms-1 ms-xl-2 mx-xxl-3 buycard " >rip card</a>
-      //               </div>
-      //           </div>
-      //         </div>
-      //       </div> `;
-      //     const myButtonB = document.querySelectorAll(".buycard");
-      //     myButtonB.forEach((btn, i) => {
-      //       btn.addEventListener("click", function () {
-      //         const carrello = document.querySelectorAll(".coldelete");
-      //         carrello[i].classList.remove("d-none");
-      //       });
-      //     });
-      //   });
+                  <a href="#" class="btn btn-primary mt-auto ms-1 ms-xl-2 mx-xxl-3  " >rip card</a>
+                    </div>
+                </div>
+              </div>
+            </div> `;
+        const myButtonB = document.querySelectorAll(".buycard");
+        myButtonB.forEach((btn, i) => {
+          btn.addEventListener("click", function () {
+            const carrello = document.querySelectorAll(".coldelete");
+            console.log(carrello);
+            carrello[i].classList.remove("d-none");
+          });
+        });
+      });
     })
     .catch((err) => {
       console.log("errore", err);
